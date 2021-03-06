@@ -1,0 +1,21 @@
+CREATE DATABASE [BIBLIOTHEQUE]
+GO
+USE [BIBLIOTHEQUE]
+GO
+CREATE TABLE [dbo].[Utilisateurs](
+	[UserID] [varchar](20) NOT NULL,
+	[MP] [nvarchar](15) NOT NULL,
+	[dateCreation] [date] NULL,
+	[datedAcces] [date] NULL,
+	[actif] [bit] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Utilisateurs] ADD  CONSTRAINT [DF]  DEFAULT (getdate()) FOR [dateCreation]
+GO
+
+
